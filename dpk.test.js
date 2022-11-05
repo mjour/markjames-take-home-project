@@ -16,42 +16,26 @@ describe("deterministicPartitionKey", () => {
 });
 
 describe("deterministicPartitionKey", () => {
-  it("Testing equality for input: empty", () => {
+  it("Testing equality for null input: ", () => {
     expect(deterministicPartitionKey(event1)).toBe(deterministicPartitionKey_v2(event1))
   });
 });
 
 describe("deterministicPartitionKey", () => {
-  it("Testing equality for input: { }", () => {
+  it("Testing equality for empty input: ", () => {
     expect(deterministicPartitionKey(event2)).toBe(deterministicPartitionKey_v2(event2))
   });
 });
 
 describe("deterministicPartitionKey", () => {
-  it("Testing equality for input: { 'partitionKey': 123 }", () => {
-    const trivialKey = deterministicPartitionKey();
+  it("Return has when received an integer input: { 'partitionKey': 123 }", () => {
     expect(deterministicPartitionKey(event3)).toBe(deterministicPartitionKey_v2(event3))
   });
 });
 
 describe("deterministicPartitionKey", () => {
-  it("Testing equality for input: { 'partitionKey': '123456' } ", () => {
-    const trivialKey = deterministicPartitionKey();
-    expect(deterministicPartitionKey(event4)).toBe(deterministicPartitionKey_v2(event4))
-  });
-});
-
-describe("deterministicPartitionKey", () => {
-  it("Testing equality for input: { 'paritionKey': { 'name': 'mark'  } }", () => {
-    const trivialKey = deterministicPartitionKey();
+  it("Return value of partitionKey when presented: { 'paritionKey': { 'name': 'mark'  } }", () => {
     expect(deterministicPartitionKey(event5)).toBe(deterministicPartitionKey_v2(event5))
-  });
-});
-
-describe("deterministicPartitionKey", () => {
-  it("Testing equality for input: { 'partitionKey': 'dpktest' }", () => {
-    const trivialKey = deterministicPartitionKey();
-    expect(deterministicPartitionKey(event6)).toBe(deterministicPartitionKey_v2(event6))
   });
 });
 
