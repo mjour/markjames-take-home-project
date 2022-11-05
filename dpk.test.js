@@ -3,10 +3,8 @@ const { deterministicPartitionKey, deterministicPartitionKey_v2 } = require("./d
 const event1 = null
 const event2 = { }
 const event3 = { 'partitionKey': 123 }
-const event4 = { 'partitionKey': '123456' }
-const event5 = { 'paritionKey': { 'name': 'mark'  } };
-const event6 = { 'partitionKey': 'dpktest' }
-const event7 = { partitionKey: 'c1802e6b9670927ebfddb7f67b3824642237361f07db35526c42c555ffd2dbe74156c366e1550ef8c0508a6cc796409a7194a59bba4d300a6182b483d315a862' }
+const event4 = { 'paritionKey': { 'name': 'mark'  } };
+const event5 = { partitionKey: 'c1802e6b9670927ebfddb7f67b3824642237361f07db35526c42c555ffd2dbe74156c366e1550ef8c0508a6cc796409a7194a59bba4d300a6182b483d315a862' }
 
 describe("deterministicPartitionKey", () => {
   it("Returns the literal '0' when given no input", () => {
@@ -35,14 +33,14 @@ describe("deterministicPartitionKey", () => {
 
 describe("deterministicPartitionKey", () => {
   it("Return value of partitionKey when presented: { 'paritionKey': { 'name': 'mark'  } }", () => {
-    expect(deterministicPartitionKey(event5)).toBe(deterministicPartitionKey_v2(event5))
+    expect(deterministicPartitionKey(event4)).toBe(deterministicPartitionKey_v2(event4))
   });
 });
 
 describe("deterministicPartitionKey", () => {
   it("Returns the partion key value if length less than MAX_PARTITION_KEY_LENGTH: { partitionKey: 'c1802e6b9670927ebfddb7f67b3824642237361f07db35526c42c555ffd2dbe74156c366e1550ef8c0508a6cc796409a7194a59bba4d300a6182b483d315a862' }", () => {
     const trivialKey = deterministicPartitionKey();
-    expect(deterministicPartitionKey(event7)).toBe(deterministicPartitionKey_v2(event7))
+    expect(deterministicPartitionKey(event5)).toBe(deterministicPartitionKey_v2(event5))
   });
 });
 
